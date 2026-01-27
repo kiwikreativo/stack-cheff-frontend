@@ -52,5 +52,4 @@ cat > README.md << 'EOF'
 - **Supabase account** (for auth & database)
 - **Claude API key** (for AI features)
 
-### Installation
 ```bash
