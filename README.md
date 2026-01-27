@@ -1,46 +1,56 @@
-# Astro Starter Kit: Basics
+cat > README.md << 'EOF'
+# 🚀 Stack Chef - AI-Powered Boilerplate Generator
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+> Generate production-ready boilerplates with your exact tech stack in 60 seconds
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📖 Overview
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+**Stack Chef** is an AI-powered SaaS platform that eliminates the 4-hour project setup process by instantly creating production-ready codebases with custom tech stack combinations. Users select their preferred frontend, backend, database, and styling frameworks through an intuitive interface, then receive a complete project with intelligent Docker configurations, CI/CD pipelines, and AI-generated documentation.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+### ✨ Key Features
 
-## 🧞 Commands
+- 🤖 **AI-Powered Generation** - Claude API generates context-aware README files and configurations
+- ⚡ **60-Second Setup** - From zero to production-ready project in under a minute
+- 🐙 **GitHub Integration** - One-click repository creation and deployment via OAuth
+- 🐳 **Docker Ready** - Automatic Docker & Podman configurations for any stack
+- 📦 **50+ Stack Combinations** - Support for React, Vue, Astro, Next.js, Flask, FastAPI, Express, PostgreSQL, MongoDB, and more
+- 💳 **Subscription Plans** - Free tier with upgrades for advanced features
+- 📊 **Usage Dashboard** - Track projects, manage GitHub connections, and monitor quotas
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## 🛠️ Tech Stack
 
-## 👀 Want to learn more?
+### Frontend
+- **Framework:** [Astro](https://astro.build) v4.x (Static Site Generation)
+- **UI Library:** [React 18](https://react.dev) (for interactive components)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com) v3.x
+- **Icons:** [Lucide React](https://lucide.dev)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Charts:** [Recharts](https://recharts.org)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+### DevOps & Deployment
+- **Hosting:** [Netlify](https://www.netlify.com) (Frontend)
+- **CI/CD:** GitHub Actions
+
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- **Node.js** 20.x or higher
+- **pnpm** (recommended) or npm
+- **Git**
+- **Supabase account** (for auth & database)
+- **Claude API key** (for AI features)
+
+### Installation
+```bash
