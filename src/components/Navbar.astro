@@ -1,37 +1,62 @@
 ---
-import "./../styles/navbar.css"
-// import "./../styles/global.css"
+import "./../styles/navbar.css";
 
-import { UtensilsCrossed } from '@lucide/astro';
+import { UtensilsCrossed } from "@lucide/astro";
 ---
 
-
-<div class="container-navbar">
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container">
-          <a class="navbar-brand logo" href="/"><img id="theme-logo" src="" style="width: 150px;"><button class="logo-icon"><UtensilsCrossed /></button>Stack Cheff</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/#about-me">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/#services">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/#projects">Docs</a>
-              </li>
-            </ul>
-          </div>
-          <div class="btn-group d-flex gap-5">
-            <button class="btn-login">Login</button>
-            <button class="btn-get-started">Get Started</button>
-          </div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div class="navbar-logo">
+            <span class="logo-icon">
+                <UtensilsCrossed  />
+            </span>
+            <a class="navbar-brand" href="#">Stack Cheff</a>
         </div>
-      </nav>
-</div>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="menu-icon"
+            >
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"
+                        >Features</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
 
-
+                <li class="nav-item">
+                    <a class="nav-link">Docs</a>
+                </li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn-login">Login</button>
+                <button class="btn-get-started" type="submit">Get Started</button>
+            </div>
+        </div>
+    </div>
+</nav>
