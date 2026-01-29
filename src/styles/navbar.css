@@ -101,9 +101,9 @@
     transition: background-color 0.3s ease;
     margin-right: 1vw;
     white-space: nowrap;
-    box-shadow: 10px -15px 88px -13px rgba(124,52,163,0.67);
-    -moz-box-shadow: 10px -15px 88px -13px rgba(124,52,163,0.67);
-    -webkit-box-shadow: 10px -15px 88px -13px rgba(124,52,163,0.67);
+    box-shadow: -1px -2px 54px 1px rgba(187,57,191,0.75);
+    -moz-box-shadow: -1px -2px 54px 1px rgba(187,57,191,0.75);
+    -webkit-box-shadow: -1px -2px 54px 1px rgba(187,57,191,0.75);
 }
 
 .btn-login {
@@ -135,6 +135,10 @@
         align-items: center;
         padding: 12px 0;
         font-size: 16px;
+    }
+
+    .navbar-brand{
+        font-size: 16px !important;
     }
     
     .navbar-nav {

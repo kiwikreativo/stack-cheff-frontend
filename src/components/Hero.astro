@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <h1 class="title">Generate Production Ready Boilerplates in 60 Seconds</h1>
+    <p class="text">Stop wasting hours on configuration. Stack Chef uses AI to cook up perfectly seasoned stacks with Docker, GitHub Actions, and industry-standard best practices out of the box. </p>
+    <div class="btn-group">
+        <button class="btn-start" type="submit">Start Building Now</button>
+        <button class="btn-learn-more" type="submit">Learn More</button>
+    </div>
+    <img class="image-hero" src="./../../src/assets/image-hero.png" alt="" srcset="">
+</div>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+    *{
+        font-family: 'DM Mono', monospace;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-fluid{
+        background-image: url("./../../src/assets/blurry-gradient-haikei.svg");
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        display: flex;
+        flex-direction: column;
+        padding-left: clamp(1rem, 5vw, 3rem);
+        padding-right: clamp(1rem, 5vw, 3rem);
+        overflow-x: hidden;
+    }
+    .title
+    {
+        color: white;
+        text-align: center;
+        margin-top: 28vh;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .text{
+        font: ;
+        color: white;
+        text-align: center;
+        margin-top: 2vh;
+        font-size: 1.5rem;
+    }
+    .btn-group{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5vh;
+        gap: clamp(1rem, 3vw, 2vw);
+    }
+
+    .btn-start{
+        background-color: white;
+        border: none;
+        color: #BB39BF;
+        padding: 1.5rem 2.5rem;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+    }
+
+    .btn-start:hover{
+        transform: translateY(-5px);
+    }
+
+    .btn-learn-more{
+        background-color: rgba(232, 232, 232, 0.1);
+        border: 1px solid white;
+        color: white;
+        padding: 1.5rem 2.5rem;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .image-hero{
+        position: relative;
+        top: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60vw;
+        border-radius: 15px;
+    }
+
+</style>
