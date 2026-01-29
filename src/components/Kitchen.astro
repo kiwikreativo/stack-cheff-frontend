@@ -1,0 +1,147 @@
+---
+import { Github, Container, BrainCircuit, type Icon as IconType } from '@lucide/astro';
+
+interface KitchenProps {
+  title: string;
+    text: string;
+    icon: typeof IconType;
+}
+
+let kitchenItems: KitchenProps[] = [
+    {
+      title: 'AI-Powered Configs',
+      text: 'Intelligent stack generation tailored to your project needs using advanced AI models. No more generic templates.',
+      icon: BrainCircuit,
+    },
+    {
+        title: 'Docker Ready',
+        text: 'Containerization baked in from the start for seamless deployment across any environment. Dev, Staging, Prod—ready.',
+        icon: Container,
+    },
+    {
+        title: 'GitHub Integration',
+        text: 'Automated CI/CD pipelines and repository setup to get your code moving instantly from the very first commit.',
+        icon: Github,
+    },
+];
+
+---
+
+<div class="container-kitchen">
+  <h1 class="kitchen-title">The Ultimate Developer Kitchen</h1>
+  <p class="kitchen-text d-flex flex-column">
+    Everything you need to ship faster without the configuration headache. Our
+    ingredients are sourced from industry standards.
+  </p>
+
+ <div class="cards">
+     { kitchenItems.map((item) =>
+  <div class="card">
+    <div class="card-body">
+        <div class="card-icon">
+            <item.icon size={30} />
+        </div>
+        <h5 class="card-title">{item.title}</h5>
+          <p class="card-text">
+              {item.text}
+          </p>
+    </div>
+  </div>)}
+ </div>
+</div>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+  .container-kitchen {
+    background-color: #e2cfea;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: clamp(1rem, 5vw, 3rem);
+    padding-right: clamp(1rem, 5vw, 3rem);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-bottom: 10vh;
+    
+  }
+  .kitchen-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: black;
+  }
+  .kitchen-text {
+    font-size: 1.2rem;
+    color: black;
+
+    max-width: 600px;
+    margin-top: 1.5rem;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    gap: 60px;
+  }
+
+  .card{
+    background: transparent;
+    border: none;
+    transition: transform 0.3s ease;
+    width: 26rem; 
+    height: 18rem;
+    border-radius: 15px;
+    
+  }
+
+  .card:hover{
+    transform: translateY(-5px);
+    cursor: pointer;
+    box-shadow: 2px 4px 63px 6px rgba(123,44,991,0.40);
+    -moz-box-shadow: 2px 4px 63px 6px rgba(123,44,991,0.4);
+    -webkit-box-shadow: 2px 4px 63px 6px rgba(123,44,991,0.4);
+  }
+
+  .card-icon{
+    display: flex;
+    text-align: start;
+    color: #3c096c;
+    background-color: #e0aaff;
+    transition: transform 0.3s ease;
+    padding: 15px 15px;
+    border-radius: 15px;
+    width: 20%;
+    height: 24%;
+    margin-bottom: 2rem;
+  }
+
+  .card-icon:hover{
+    transform: translateY(-5px);
+  }
+  .card-body{
+    width: 80%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .card-title{
+    display: flex;
+    text-align: start;
+
+  }
+
+  .card-text{
+    display: flex;
+    text-align: start;
+    font-weight: 300;
+    margin-bottom: 5%;
+  }
+</style>
