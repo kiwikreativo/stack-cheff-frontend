@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
 /* Sticky Navbar with Blur Background */
 .navbar {
     position: fixed;
@@ -14,9 +14,7 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
 }
-.navbar{
-    font-family: "DM Mono", monospace;
-}
+
 
 .container-navbar {
     width: 100%;
@@ -54,10 +52,9 @@
 }
 
 .navbar-brand {
-    font-family: 'DM Mono', monospace !important;
     font-size: 24px !important;
     font-weight: bold !important;
-    color: #5a189a !important;
+    color: #0A2540 !important;
     /* margin-left: 1vw; */
     margin-right: 1vw;
     margin-top: 2px;
@@ -65,19 +62,19 @@
 }
 
 .menu-icon {
-    color: #9d4edd;
+    color: #c7ddeb;
     width: 28px;
     height: 28px;
 }
 
 .logo-icon {
-    background-color: #9d4edd;
+    background-color: #0A2540;
     width: 50px;
     height: 50px;
     padding: 0;
     border-radius: 18px;
     font-size: 28px;
-    color: #e0aaff;
+    color: #c7ddeb;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,8 +88,8 @@
 
 
 .btn-get-started {
-    background-color: #5a189a;
-    color: #fff;
+    background-color: #0A2540;
+    color: #c7ddeb;
     font-size: 1.1rem;
     border: none;
     border-radius: 10px;
@@ -101,9 +98,9 @@
     transition: background-color 0.3s ease;
     margin-right: 1vw;
     white-space: nowrap;
-    box-shadow: -1px -2px 54px 1px rgba(187,57,191,0.75);
-    -moz-box-shadow: -1px -2px 54px 1px rgba(187,57,191,0.75);
-    -webkit-box-shadow: -1px -2px 54px 1px rgba(187,57,191,0.75);
+    box-shadow: 2px 4px 63px -3px rgba(10,47,67,0.75);
+    -moz-box-shadow: 2px 4px 63px -3px rgba(10,47,67,0.75);
+    -webkit-box-shadow: 2px 4px 63px -3px rgba(10,47,67,0.75);
 }
 
 .btn-login {
