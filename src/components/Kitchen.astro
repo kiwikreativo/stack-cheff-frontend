@@ -27,7 +27,7 @@ let kitchenItems: KitchenProps[] = [
 
 ---
 
-<div class="container-kitchen">
+<div class="container-kitchen" id="kitchen">
   <h1 class="kitchen-title">The Ultimate Developer Kitchen</h1>
   <p class="kitchen-text d-flex flex-column">
     Everything you need to ship faster without the configuration headache. Our
@@ -53,8 +53,7 @@ let kitchenItems: KitchenProps[] = [
 </div>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
-
+  
   .container-kitchen {
     background-color: #c7ddeb;
     display: flex;
@@ -68,7 +67,7 @@ let kitchenItems: KitchenProps[] = [
     padding-bottom: 5rem;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    margin-bottom: 10vh;
+    margin-bottom: 0;
     
   }
   .kitchen-title {
@@ -100,7 +99,7 @@ let kitchenItems: KitchenProps[] = [
     border-radius: 15px;
   }
 
-  .card:hover{ /*TODO fix the shadow is to intense*/
+  .card:hover{ 
     cursor: pointer;
     box-shadow: -1px 24px 52px -21px rgba(138,138,138,0.75);
     -moz-box-shadow: -1px 24px 52px -21px rgba(138,138,138,0.75);

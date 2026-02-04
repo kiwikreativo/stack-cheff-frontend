@@ -41,7 +41,7 @@ interface MenuProps {
 ];
 ---
 
-<div class="container-menu">
+<div class="container-menu" id="menu">
     <h1 class="menu-title">Choose Your Menu</h1>
   <p class="menu-text d-flex flex-column">
     Scale production as you grow. No hidden ingredients.
@@ -100,6 +100,9 @@ interface MenuProps {
   }
 
   .cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 4rem;
     margin-top: 5%;
   }
