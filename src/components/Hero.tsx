@@ -4,14 +4,17 @@ import { ContainerScroll } from "./ui/container-scroll-animation";
 
 export function HeroScrollDemo() {
   return (
-    <div className="flex flex-col overflow-hidden pb-[200px] pt-[150px]">
+    <div className="flex flex-col overflow-hidden pb-[200px] pt-[150px]"
+    style={{backgroundImage: "url('/src/assets/blurry-gradient-haikei.svg')", backgroundSize: 'cover', backgroundPosition: 'center'}}
+    >
+      {/* /home/guillermoo/Documents/proyects/stack-cheff-frontend/src/assets/blurry-gradient-haikei.svg */}
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-4xl font-semibold text-black dark:text-white">
-              Unleash the power of <br />
+            <h1 className="text-4xl font-semibold text-white dark:text-white">
+              Generate Production-Ready  <br />
               <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                Scroll Animations
+                Boilerplates in 60 Seconds
               </span>
             </h1>
           </>
