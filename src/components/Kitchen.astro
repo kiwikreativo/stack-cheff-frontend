@@ -63,39 +63,39 @@ let kitchenItems: KitchenProps[] = [
     text-align: center;
     padding-left: clamp(1rem, 5vw, 3rem);
     padding-right: clamp(1rem, 5vw, 3rem);
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     margin-bottom: 0;
     
   }
   .kitchen-title {
-    font-size: 3rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #0A2540;
   }
   .kitchen-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #0A2540;
     max-width: 600px;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 
   .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
-    gap: 60px;
+    gap: 1.5rem;
+    margin-top: 2rem;
   }
 
   .card{
     background: rgba(255, 255, 255, 0.3);
     border: none;
-    width: 28rem; 
-    height: 20rem;
+    width: 100%;
+    max-width: 22rem; 
+    min-height: 18rem;
     border-radius: 15px;
   }
 
@@ -119,14 +119,14 @@ let kitchenItems: KitchenProps[] = [
     background-color: #0A2540;
     transition: transform 0.3s ease;
     border-radius: 15px;
-    width: 65px;
-    height: 65px;
-    margin-bottom: 1.5rem;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 1rem;
   }
 
   .icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 
   .card-icon:hover{
@@ -143,15 +143,69 @@ let kitchenItems: KitchenProps[] = [
     display: flex;
     text-align: start;
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .card-text{
     display: flex;
     text-align: start;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     margin-bottom: 5%;
-    color:#0A2540
+    color:#0A2540;
+    line-height: 1.5;
+  }
+
+  /* Responsive for 360px screens */
+  @media (max-width: 480px) {
+    .container-kitchen {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .kitchen-title {
+      font-size: 1.5rem;
+    }
+
+    .kitchen-text {
+      font-size: 0.9rem;
+    }
+
+    .cards {
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      max-width: 18rem;
+      min-height: 16rem;
+    }
+
+    .icon-container {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0.75rem;
+    }
+
+    .icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+    }
+
+    .card-text {
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    .card {
+      max-width: 20rem;
+      min-height: 17rem;
+    }
   }
 </style>

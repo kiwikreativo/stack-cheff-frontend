@@ -125,24 +125,44 @@
 
 
 
-/* Mobile: up to 700px */
+/* Mobile: 360px and up to 700px */
 @media (max-width: 700px) {
     .container-navbar {
         flex-direction: column;
         align-items: center;
-        padding: 12px 0;
-        font-size: 16px;
+        padding: 8px 0;
+        font-size: 14px;
+        height: auto;
+        min-height: 70px;
+    }
+
+    .navbar {
+        height: auto;
+        min-height: 70px;
     }
 
     .navbar-brand{
-        font-size: 16px !important;
+        font-size: 14px !important;
+        margin-right: 5px;
+    }
+    
+    .navbar-logo {
+        margin-bottom: 0;
+    }
+
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        border-radius: 14px;
+        margin-left: 5px;
     }
     
     .navbar-nav {
-        font-size: 1rem;
+        font-size: 0.85rem;
         font-weight: bold;
-        line-height: 3;
-        margin: 1rem auto;
+        line-height: 2.5;
+        margin: 0.5rem auto;
     }
 
     .nav-link{
@@ -154,16 +174,25 @@
         flex-direction: row;
         align-items: center;
         align-content: center;
-        margin: 0 4%;
+        margin: 0 0;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .btn-get-started {
-        width: 80%;
+        width: 60%;
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    .btn-login {
+        font-size: 0.8rem;
+        
     }
     
     .logo {
         width: 100px;
-        margin: 0 0 12px 0;
+        margin: 0 0 8px 0;
     }
 }
 

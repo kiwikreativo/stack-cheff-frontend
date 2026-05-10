@@ -47,7 +47,7 @@ interface MenuProps {
     Scale production as you grow. No hidden ingredients.
   </p>
 
-  <div class="cards d-flex flex-wrap">
+  <div class="cards d-flex flex-row flex-wrap justify-content-center gap-4 mt-5">
     {menuItems.map((item: MenuProps) => (
         <div class={`card ${item.title === 'Head Chef' ? 'card-featured' : 'card-standard'}`}>
             <div class="card-body">
@@ -68,10 +68,9 @@ interface MenuProps {
 </div>
 
 
-<style>
+  <style>
 
-    /* TODO correct the responsive to set the cards to the center and the background color white spaceb */
-    .container-menu {
+      .container-menu {
         background-color: rgba(199, 221, 235, 0.3);
         display: flex;
         flex-direction: column;
@@ -80,34 +79,36 @@ interface MenuProps {
         text-align: center;
         padding-left: clamp(1rem, 5vw, 3rem);
         padding-right: clamp(1rem, 5vw, 3rem);
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
         width: 100vw;
         margin-left: calc(-50vw + 50%);    
   }
   .menu-title {
-    font-size: 3rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #0A2540;
   }
   .menu-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #0A2540;
     max-width: 700px;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 
   .cards{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 4rem;
+    gap: 1.1rem;
     margin-top: 5%;
+    width: 100vw;
   }
 
   .card{
-    width: 28rem; 
-    height: 28rem;
+    width: 25%;
+    min-width: 280px; 
+    min-height: 26rem;
     border-radius: 20px;
   }
 
@@ -136,33 +137,33 @@ interface MenuProps {
   }
 
   .card-title{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     margin-bottom: 0.5rem;
     margin-left: 15px;
   }
 
   .card-price{
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     margin-left: 15px;
   }
 
   .c-mo{
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
     display: inline;
-    margin-left: -25px;
+    margin-left: -15px;
   }
 
   .cards-description{
     list-style-type: none;
-    padding-left: 1.5rem;
-    font-size: 1.1rem;
+    padding-left: 1rem;
+    font-size: 0.95rem;
     font-weight: 520;
-    line-height: 3.5rem;
+    line-height: 2.8rem;
   }
 
 
@@ -170,13 +171,13 @@ interface MenuProps {
     background-color: #0A2540;
     color: #ffffff;
     border: none;
-    padding: 1.2rem 3rem;
-    border-radius: 15px;
+    padding: 1rem 2rem;
+    border-radius: 12px;
     cursor: pointer;
-    margin-bottom: 1rem;
-    margin-left: 18px;
+    margin-bottom: 0.75rem;
+    margin-left: 15px;
     width: 90%;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
   }
 
@@ -186,5 +187,67 @@ interface MenuProps {
     
   }
 
+  /* Responsive for 360px screens */
+  @media (max-width: 480px) {
+    .container-menu {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .menu-title {
+      font-size: 1.5rem;
+    }
+
+    .menu-text {
+      font-size: 0.9rem;
+    }
+
+    .cards {
+      gap: 1rem;
+      margin-top: 3%;
+    }
+
+    .card {
+      max-width: 18rem;
+      min-height: 24rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      margin-top: 0.75rem;
+    }
+
+    .card-price {
+      font-size: 1.75rem;
+    }
+
+    .c-mo {
+      font-size: 0.9rem;
+      margin-left: -12px;
+    }
+
+    .cards-description {
+      font-size: 0.85rem;
+      line-height: 2.5rem;
+      padding-left: 0.75rem;
+    }
+
+    .btn-action {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+      border-radius: 10px;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    .cards {
+      gap: 1.25rem;
+    }
+
+    .card {
+      max-width: 20rem;
+      min-height: 25rem;
+    }
+  }
 
 </style>
