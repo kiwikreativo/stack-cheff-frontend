@@ -3,10 +3,11 @@ import Hero from "./Hero.astro"
 import Kitchen from "./Kitchen.astro"
 import Menu from "./Menu.astro"
 import CalltoAction from "./CalltoAction.astro"
+import { HeroScrollDemo } from "./Hero.tsx"
 ---
 
 <div class="container-fluid">
-    <Hero />
+    <HeroScrollDemo client:load />
     <Kitchen />
     <Menu />
     <CalltoAction />
