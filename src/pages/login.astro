@@ -1,17 +1,155 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import LogoCheff from "../assets/StackChefflogo.png";
+import { UtensilsCrossed } from "@lucide/astro";
 ---
 
+<!-- <div class="navbar-logo">
+            <span class="logo-icon">
+                <UtensilsCrossed  />
+            </span>
+            <a class="navbar-brand" href="#">Stack Cheff</a>
+        </div> 
+         .navbar-logo {
+        margin-bottom: 0;
+    }
+
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        border-radius: 14px;
+        margin-left: 5px;
+    }
+        
+        -->
+
 <Layout>
-    <div class="containerLogin">
-        <span><i class="fa-solid fa-arrow-left"></i> Back to main</span>
+  <div class="containerLogin">
+    <a href="/" class="backmain"
+      ><i class="fa-solid fa-arrow-left text-black"></i> Back to main</a
+    >
+    <div class="card">
+        <div class="navbar-logo d-flex align-items-center gap-3">
+            <span class="logo-icon py-2 px-2 flex items-center justify-center"  >
+                <UtensilsCrossed class="size-8" />
+            </span>
+            <h2 class="m-0 text-xl" style="font-weight: bold;">Stack Cheff</h2>
+        </div>
+      <span>Welcome back! Please enter your credentials.</span>
+      <button class="mb-5 font-bold btn-github"
+        ><i class="fa-brands fa-github mr-3 text-xl"></i>Continue with Github</button
+      >
+      <div class="row">
+        <div class="col-3"><hr /></div>
+        <div class="col-6">
+          <p class="text-sm text-uppercase">Or continue with email</p>
+        </div>
+        <div class="col-3"><hr /></div>
+      </div>
+
+      <form>
+        <div class="email">
+          <label for="email" class="text-uppercase mb-2 mt-2">Email</label>
+          <input
+            class="form-input flex w-full rounded-lg text-dark-navy focus:ring-2 focus:ring-dark-navy/20 border-glass-border bg-white/50 focus:bg-white h-14 placeholder:text-dark-navy/30 pl-12 text-base font-medium transition-all"
+            placeholder="chef@stack.io"
+            type="email"
+          />
+        </div>
+        <div class="password">
+          <label for="password" class="text-uppercase mb-2 mt-2">Password</label
+          >
+          <a href="#" class="text-dark-navy/70 font-medium" style="margin-left: 44%;">Forgot Password?</a>
+          <input
+            class="form-input flex w-full rounded-lg text-dark-navy focus:ring-2 focus:ring-dark-navy/20 border-glass-border bg-white/50 focus:bg-white h-14 placeholder:text-dark-navy/30 pl-12 text-base font-medium transition-all"
+            placeholder="••••••••"
+            type="password"
+          />
+        </div>
+        <button type="submit" class="font-bold mt-3"
+          >Sign in to Kitchen <i class="fa-solid fa-utensils ml-3 text-xl"
+          ></i></button
+        >
+      </form>
+      <div class="mt-4 text-center">
+        <p class="text-dark-navy/70 font-medium">
+          Don't have an account?
+        <a
+            class="text-dark-navy font-black  ml-1"
+            style="text-decoration: none; color: #0a2540;"
+            href="#">Sign up
+        </a>
+        </p>
+      </div>
     </div>
+  </div>
 </Layout>
 
 <style>
+  .containerLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(199, 221, 235, 0.8);
+    color: #333;
+    margin-top: 15px;
+    padding: 2rem;
+    height: 100vh;
+  }
 
-    .containerLogin {
-        background-color: #e3f2fd;
-        color: #333;
-    }
+  .backmain {
+    align-self: flex-start;
+    margin-bottom: 2rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35%;
+  }
+
+  .card {
+    background: rgba(199, 221, 235, 0.3);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 32rem;
+  }
+
+  .card h2 {
+    margin-bottom: 1rem;
+  }
+
+  .card span {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .card form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .card button {
+    padding: 1rem;
+    background-color: #0a2540;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    gap: 2px;
+  }
+
+  .btn-github {
+    background-color: white !important;
+    color: #0a2540 !important;
+  }
 </style>
