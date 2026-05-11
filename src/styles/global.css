@@ -51,6 +51,7 @@
 :root {
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
+    --foo: oklch(72.23% 0.14021 230.428);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
@@ -127,4 +128,37 @@
   html {
     @apply font-mono;
     }
+}
+
+/* Social links hover tooltips */
+.social-link {
+    position: relative;
+}
+
+.social-link .tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: oklch(0.488 0.243 264.376);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+    pointer-events: none;
+}
+
+.social-link:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.dark .social-link .tooltip {
+    background-color: oklch(0.922 0 0);
+    color: oklch(0.145 0 0);
 }
