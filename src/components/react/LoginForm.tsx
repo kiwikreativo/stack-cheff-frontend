@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-export default function RegisterForm() {
+export default function LoginForm() {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
-    repeatPassword: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +13,7 @@ export default function RegisterForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Register form submitted:", formData);
+    console.log("Login form submitted:", formData);
   };
 
   return (
@@ -63,37 +61,32 @@ export default function RegisterForm() {
               Stack Cheff
             </h1>
           </div>
-          <span className="block mb-4 xs:mb-5 text-base xs:text-lg">
-            Create your account and start cooking!
+          <span className="block mb-4 xs:mb-5 text-center xs:text-lg">
+            Welcome back! Please enter your credentials.
           </span>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-2 xs:gap-3">
-            {/* Name Field */}
-            <div className="name relative">
-              <span
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0a2540] text-xl"
-                style={{ top: "67%" }}
-              >
-                <i className="fa-regular fa-user"></i>
-              </span>
-              <label
-                htmlFor="name"
-                className="block uppercase mb-1 xs:mb-2 mt-2 text-xs sm:text-sm"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 text-sm sm:text-base font-medium transition-all"
-                placeholder="John Doe"
-                type="text"
-                required
-              />
-            </div>
+          <button
+            type="button"
+            className="mb-4 xs:mb-5 font-bold w-full bg-white text-[#0a2540] py-3 xs:py-4 px-3 xs:px-4 rounded-lg border-none cursor-pointer whitespace-nowrap text-base xs:text-lg"
+            style={{ borderRadius: "10px" }}
+          >
+            <i className="fa-brands fa-github mr-2 xs:mr-3 text-xl"></i>
+            Continue with Github
+          </button>
 
+          <div className="flex flex-row items-center gap-2 mb-3 xs:mb-4">
+            <div className="flex-1">
+              <hr />
+            </div>
+            <p className="text-xs sm:text-sm uppercase whitespace-nowrap">
+              Or continue with email
+            </p>
+            <div className="flex-1">
+              <hr />
+            </div>
+          </div>
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-2 xs:gap-3">
             {/* Email Field */}
             <div className="email relative">
               <span
@@ -128,42 +121,29 @@ export default function RegisterForm() {
               >
                 <i className="fa-solid fa-lock"></i>
               </span>
-              <label
-                htmlFor="password"
-                className="block uppercase mt-2 text-xs sm:text-sm"
-              >
-                Password
-              </label>
+              <div className="row flex justify-between">
+                <div className="col-6">
+                  <label
+                    htmlFor="password"
+                    className="block uppercase mt-2 text-xs sm:text-sm"
+                  >
+                    Password
+                  </label>
+                </div>
+                <div className="col-6">
+                  <a
+                    href="#"
+                    className="block text-right mt-3 mb-2 text-sm xs:text-sm no-underline text-[#0a2540]/70"
+                    style={{ textDecoration: "none", color: "#0a2540" }}
+                  >
+                    Forgot Password?
+                  </a>
+                </div>
+              </div>
               <input
                 id="password"
                 name="password"
                 value={formData.password}
-                onChange={handleChange}
-                className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 text-sm sm:text-base font-medium transition-all"
-                placeholder="••••••••"
-                type="password"
-                required
-              />
-            </div>
-
-            {/* Repeat Password Field */}
-            <div className="repeat-password mt-5 relative">
-              <span
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0a2540] text-xl"
-                style={{ top: "67%" }}
-              >
-                <i className="fa-solid fa-lock"></i>
-              </span>
-              <label
-                htmlFor="repeatPassword"
-                className="block uppercase mt-2 text-xs sm:text-sm"
-              >
-                Repeat Password
-              </label>
-              <input
-                id="repeatPassword"
-                name="repeatPassword"
-                value={formData.repeatPassword}
                 onChange={handleChange}
                 className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 text-sm sm:text-base font-medium transition-all"
                 placeholder="••••••••"
@@ -177,19 +157,19 @@ export default function RegisterForm() {
               className="font-bold mt-5 xs:mt-3 w-full bg-[#0a2540] text-white py-3 xs:py-3 sm:py-4 px-3 xs:px-4 rounded-xl cursor-pointer border-none text-base sm:text-lg"
               style={{ borderRadius: "10px" }}
             >
-              Create Account <i className="fa-solid fa-utensils ml-2 xs:ml-3 text-xl"></i>
+              Sign in to Kitchen <i className="fa-solid fa-utensils ml-2 xs:ml-3 text-xl"></i>
             </button>
           </form>
 
           <div className="mt-3 xs:mt-4 text-center">
             <p className="text-[#0a2540]/70 font-medium text-xs sm:text-sm">
-              Already have an account?
+              Don't have an account?
               <a
                 className="ml-1 text-[#0a2540] font-black no-underline"
-                href="/login"
+                href="/register"
                 style={{ textDecoration: "none", color: "#0a2540" }}
               >
-                Sign in
+                Sign up
               </a>
             </p>
           </div>
