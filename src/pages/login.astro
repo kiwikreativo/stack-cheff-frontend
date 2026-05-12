@@ -1,0 +1,127 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LogoCheff from "../assets/StackChefflogo.png";
+import { UtensilsCrossed } from "@lucide/astro";
+---
+
+<Layout>
+  <div
+    class="flex flex-col justify-center items-center bg-[rgba(199,221,235,0.8)] text-[#333] mt-[15px] p-3 xs:p-4 sm:p-8 min-h-screen w-full"
+  >
+    <a
+      href="/"
+      class="self-start mb-4 mt-5 xs:mb-6 sm:mb-8 sm:ml-[35%] md:ml-[35%] lg:ml-[35%] ml-0 xs:ml-0 text-[#333] text-sm xs:text-base"
+      style="text-decoration: none; color: #0a2540;"
+      ><i class="fa-solid fa-arrow-left text-black"></i> Back to main</a
+    >
+    <div
+      class="bg-[rgba(199,221,235,0.3)] py-5 xs:p-5 sm:p-8 shadow-md w-full h-auto h-[42rem] xs:w-[25rem] sm:w-[35rem] md:w-[32rem] lg:w-[32rem] max-w-[20rem] xs:max-w-[24rem] sm:max-w-[32rem]"
+      style="box-shadow: -2px 3px 37px -7px rgba(0,0,0,0.75);
+            -webkit-box-shadow: -2px 3px 37px -7px rgba(0,0,0,0.75);
+            -moz-box-shadow: -2px 3px 37px -7px rgba(0,0,0,0.75);
+            border-radius: 15px;
+            display: flex; flex-direction: column; justify-self: center; align-self: center;
+            "
+    >
+      <div
+        class="content"
+        style="width: 90%; display: flex; flex-direction: column; justify-self: center; align-self: center;"
+      >
+        <div class="flex items-center gap-2 xs:gap-3 mb-3 xs:mb-4">
+          <span
+            class="py-2 px-2 text-xl xs:py-2 px-1 xs:px-2 flex items-center justify-center bg-[#0a2540] text-white rounded-xl"
+          >
+            <UtensilsCrossed class="size-6 xs:size-8" />
+          </span>
+          <h1
+            class="mb-0 font-bold text-2xl xs:text-3xl sm:text-4xl text-[#0a2540]"
+          >
+            Stack Cheff
+          </h1>
+        </div>
+        <span class="block mb-4 xs:mb-5 text-base xs:text-lg"
+          >Welcome back! Please enter your credentials.</span
+        >
+        <button
+          class="mb-4 xs:mb-5 font-bold w-full bg-white text-[#0a2540] py-3 xs:py-4 px-3 xs:px-4 rounded-lg border-none cursor-pointer whitespace-nowrap text-base xs:text-lg"
+          style="border-radius: 10px;"
+          ><i class="fa-brands fa-github mr-2 xs:mr-3 text-xl"></i>Continue with
+          Github</button
+        >
+        <div class="flex flex-row items-center gap-2 mb-3 xs:mb-4">
+          <div class="flex-1"><hr /></div>
+          <p class="text-xs sm:text-sm uppercase whitespace-nowrap">
+            Or continue with email
+          </p>
+          <div class="flex-1"><hr /></div>
+        </div>
+
+        <form class="flex flex-col gap-2 xs:gap-3">
+          <div class="email relative">
+            <span
+              class="absolute left-3  top-13 lg:top-15 -translate-y-1/2 text-[#0a2540] text-xl"
+            >
+              <i class="fa-regular fa-envelope"></i>
+            </span>
+            <label
+              for="email"
+              class="block uppercase mb-1 xs:mb-2 mt-2 text-xs sm:text-sm"
+              >Email</label
+            >
+            <input
+              class="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 text-sm sm:text-base font-medium transition-all"
+              placeholder="chef@stack.io"
+              type="email"
+            />
+          </div>
+          <div class="password mt-5 relative">
+            <span
+              class="absolute left-3 top-22 lg:top-17 -translate-y-1/2 text-[#0a2540] text-xl"
+            >
+              <i class="fa-solid fa-lock"></i>
+            </span>
+            <div class="row">
+              <div class="col-6">
+                <label
+                  for="password"
+                  class="block uppercase mt-2 text-xs sm:text-sm"
+                  >Password</label
+                >
+              </div>
+              <div class="col-6">
+                <a
+                  href="#"
+                  class="block text-right mt-3 mb-2 text-sm xs:text-sm no-underline text-[#0a2540]/70"
+                  style=" text-decoration: none;  color: #0a2540;"
+                  >Forgot Password?</a
+                >
+              </div>
+            </div>
+            <input
+              class="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 text-sm sm:text-base font-medium transition-all"
+              placeholder="••••••••"
+              type="password"
+            />
+          </div>
+          <button
+            type="submit"
+            class="font-bold mt-5 xs:mt-3 w-full bg-[#0a2540] text-white py-3 xs:py-3 sm:py-4 px-3 xs:px-4 rounded-xl cursor-pointer border-none text-base sm:text-lg"
+            style="border-radius: 10px;"
+            >Sign in to Kitchen <i
+              class="fa-solid fa-utensils ml-2 xs:ml-3 text-xl"></i></button
+          >
+        </form>
+        <div class="mt-3 xs:mt-4 text-center">
+          <p class="text-[#0a2540]/70 font-medium text-xs sm:text-sm">
+            Don't have an account?
+            <a
+              class="ml-1 text-[#0a2540] font-black no-underline"
+              href="#"
+              style="text-decoration: none; color: #0a2540;">Sign up</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

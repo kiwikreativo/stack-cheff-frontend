@@ -2,25 +2,53 @@
 const actualYear = new Date().getFullYear();
 ---
 
-<footer class="py-6 px-4 sm:px-6 lg:px-12 font-montserrat text-base">
+<footer class="py-6 px-4 foo sm:px-6 lg:px-12 font-montserrat text-base">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between items-center gap-6 md:gap-0 mb-3">
         <!-- Logo -->
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 ml-5">
             <img src="" alt="" class="w-8 h-8" />
             <span class="text-black dark:text-white font-bold text-lg">Stack Cheff</span>
         </div>
 
         <!-- Social Media Links -->
-        <ul class="flex flex-row sm:flex-row gap-10 sm:gap-4 md:gap-10 text-black dark:text-white text-center w-full sm:w-auto justify-content-center">
-            <li><a href="#" target="_blank" rel="noopener noreferrer" class="text-black hover:text-orange-500 transition-colors" style="text-decoration: none;"><i class="fa-brands fa-discord text-2xl"></i></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer" class="text-black hover:text-orange-500 transition-colors" style="text-decoration: none;"><i class="fa-solid fa-lock text-2xl"></i></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer" class="text-black hover:text-orange-500 transition-colors" style="text-decoration: none;"><i class="fa-brands fa-instagram text-2xl"></i></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer" class="text-black hover:text-orange-500 transition-colors" style="text-decoration: none;"><i class="fa-brands fa-linkedin text-2xl"></i></a></li>
+        <ul class="flex flex-row mr-5 mt-2 sm:flex-row gap-10 sm:gap-4 md:gap-10 text-black dark:text-white text-center w-full sm:w-auto justify-content-center">
+            <li class="social-link">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-black  transition-colors" style="text-decoration: none;">
+                    <i class="fa-brands fa-discord text-2xl"></i>
+                    <span class="tooltip">Discord</span>
+                </a>
+            </li>
+            <li class="social-link">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-black  transition-colors" style="text-decoration: none;">
+                    <i class="fa-solid fa-lock text-2xl"></i>
+                    <span class="tooltip">Privay Policy</span>
+                </a>
+            </li>
+            <li class="social-link">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-black  transition-colors" style="text-decoration: none;">
+                    <i class="fa-brands fa-instagram text-2xl"></i>
+                    <span class="tooltip">Instagram</span>
+                </a>
+            </li>
+            <li class="social-link">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-black  transition-colors" style="text-decoration: none;">
+                    <i class="fa-brands fa-linkedin text-2xl"></i>
+                    <span class="tooltip">LinkedIn</span>
+                </a>
+            </li>
         </ul>
 
-        <!-- Copyright -->
-        <p class="text-black dark:text-white text-sm sm:text-base text-center">
-            &copy; {actualYear} Stack Cheff. All rights reserved.
-        </p>
     </div>
+    <hr class="h-2 w-full text-blue-500" />
+    <!-- Copyright -->
+    <p class="text-black dark:text-white text-sm sm:text-base text-center">
+        &copy; {actualYear} Stack Cheff. All rights reserved.
+    </p>
 </footer>
+
+
+<style>
+    footer {
+        background-color: #d0e3ef;
+    }
+</style>
