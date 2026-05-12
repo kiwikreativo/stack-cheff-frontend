@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { UtensilsCrossed } from "lucide-react";
 
 export default function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -52,16 +53,16 @@ export default function RegisterForm() {
             alignSelf: "center",
           }}
         >
-          <div className="flex items-center gap-2 xs:gap-3 mb-3 xs:mb-4">
+          <div className="flex items-center justify-center  gap-2 xs:gap-3 mb-5 xs:mb-4">
             <span
-              className="py-2 px-2 text-xl xs:py-2 px-1 xs:px-2 flex items-center justify-center bg-[#0a2540] text-white rounded-xl"
+              className="py-3 px-3 text-xl xs:py-2 px-1 xs:px-2 flex items-center justify-center bg-[#0a2540] text-white rounded-xl"
               style={{ padding: "0.5rem" }}
             >
-              <i className="fa-solid fa-utensils" style={{ fontSize: "1.5rem" }}></i>
+              <UtensilsCrossed size={32} />
             </span>
-            <h1 className="mb-0 font-bold text-2xl xs:text-3xl sm:text-4xl text-[#0a2540]">
+            {/* <h1 className="mb-0 font-bold text-2xl xs:text-3xl sm:text-4xl text-[#0a2540]">
               Stack Cheff
-            </h1>
+            </h1> */}
           </div>
           <span className="block mb-4 xs:mb-5 text-base xs:text-lg">
             Create your account and start cooking!
@@ -95,7 +96,7 @@ export default function RegisterForm() {
             </div>
 
             {/* Email Field */}
-            <div className="email relative">
+            <div className="email mt-3 relative">
               <span
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0a2540] text-xl"
                 style={{ top: "67%" }}
@@ -121,7 +122,7 @@ export default function RegisterForm() {
             </div>
 
             {/* Password Field */}
-            <div className="password mt-5 relative">
+            <div className="password mt-3 relative">
               <span
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0a2540] text-xl"
                 style={{ top: "67%" }}
@@ -147,7 +148,7 @@ export default function RegisterForm() {
             </div>
 
             {/* Repeat Password Field */}
-            <div className="repeat-password mt-5 relative">
+            <div className="repeat-password mt-3 relative">
               <span
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0a2540] text-xl"
                 style={{ top: "67%" }}
