@@ -131,13 +131,13 @@ export default function LoginForm() {
                   </label>
                 </div>
                 <div className="col-6">
-                  <a
-                    href="#"
-                    className="block text-right mt-3 mb-2 text-sm xs:text-sm no-underline text-[#0a2540]/70"
-                    style={{ textDecoration: "none", color: "#0a2540" }}
-                  >
-                    Forgot Password?
-                  </a>
+                <a
+                  href="/forgot-password"
+                  className="block text-right mt-3 mb-2 text-sm xs:text-sm no-underline text-[#0a2540]/70"
+                  style={{ textDecoration: "none", color: "#0a2540" }}
+                >
+                  Forgot Password?
+                </a>
                 </div>
               </div>
               <input
