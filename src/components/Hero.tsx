@@ -2,7 +2,7 @@
 import React from "react";
 import { ContainerScroll } from "./ui/container-scroll-animation";
 
-export function HeroScrollDemo() {
+export function HeroScroll() {
   return (
     <div className="flex flex-col overflow-hidden pb-[80px] sm:pb-[250px] pt-[100px] sm:pt-[150px]"
     style={{backgroundImage: "url('/src/assets/blurry-gradient-haikei.svg')", backgroundSize: 'cover', backgroundPosition: 'center'}}
