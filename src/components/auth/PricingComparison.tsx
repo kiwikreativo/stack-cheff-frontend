@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 interface PricingComparisonProps {
-  selectedPlan: 'Head Chef' | 'Enterprise';
+  selectedPlan: 'Head Chef' | 'Executive';
 }
 
 export default function PricingComparison({ selectedPlan }: PricingComparisonProps) {
@@ -17,15 +17,15 @@ export default function PricingComparison({ selectedPlan }: PricingComparisonPro
       price: '$20',
       period: '/mo',
       title: 'Head Chef',
-      features: ['30 Boilerplates/mo', 'Standard Support', 'Public & Private Repos'],
+      features: ['15 Boilerplates/mo', 'Standard Support', 'Public & Private Repos'],
       gradientFrom: '#667eea',
       gradientTo: '#764ba2',
     },
-    'Enterprise': {
+    'Executive': {
       price: '$60',
       period: '/mo',
-      title: 'Enterprise',
-      features: ['30 Boilerplates/mo', 'Priority Support', 'Enterprise Security'],
+      title: 'Executive',
+      features: ['30 Boilerplates/mo', 'Priority Support', 'Executive Security'],
       gradientFrom: '#f093fb',
       gradientTo: '#f5576c',
     },
