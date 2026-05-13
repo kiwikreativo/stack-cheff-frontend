@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function ForgotPasswordForm() {
   const [step, setStep] = useState<"reset" | "confirm">("reset");
@@ -9,6 +10,7 @@ export default function ForgotPasswordForm() {
   });
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   
   // Refs for PIN inputs
   const pinInputRefs = useRef<(HTMLInputElement | null)[]>([]);
@@ -167,10 +169,25 @@ export default function ForgotPasswordForm() {
                     name="newPassword"
                     value={formData.newPassword}
                     onChange={handleChange}
-                    className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 text-sm sm:text-base font-medium transition-all"
+                    className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 pr-10 text-sm sm:text-base font-medium transition-all"
                     placeholder="••••••••"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                   />
+                  <div className="toggle absolute" style={{ right: "5%", top: "50%", transform: "translateY(28%)" }}>
+                    {showPassword ? (
+                      <EyeOff
+                        className="text-[#0a2540] cursor-pointer"
+                        size={24}
+                        onClick={() => setShowPassword(false)}
+                      />
+                    ) : (
+                      <Eye
+                        className="text-[#0a2540] cursor-pointer"
+                        size={24}
+                        onClick={() => setShowPassword(true)}
+                      />
+                    )}
+                  </div>
                 </div>
 
                 {/* Confirm Password Field */}
@@ -192,10 +209,25 @@ export default function ForgotPasswordForm() {
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleChange}
-                    className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 text-sm sm:text-base font-medium transition-all"
+                    className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 pr-10 text-sm sm:text-base font-medium transition-all"
                     placeholder="••••••••"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                   />
+                  <div className="toggle absolute" style={{ right: "5%", top: "50%", transform: "translateY(28%)" }}>
+                    {showPassword ? (
+                      <EyeOff
+                        className="text-[#0a2540] cursor-pointer"
+                        size={24}
+                        onClick={() => setShowPassword(false)}
+                      />
+                    ) : (
+                      <Eye
+                        className="text-[#0a2540] cursor-pointer"
+                        size={24}
+                        onClick={() => setShowPassword(true)}
+                      />
+                    )}
+                  </div>
                 </div>
 
                 {error && (
