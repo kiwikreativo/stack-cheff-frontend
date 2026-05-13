@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { EyeOff, Eye } from "lucide-react";
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -147,9 +150,26 @@ export default function LoginForm() {
                 onChange={handleChange}
                 className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 text-sm sm:text-base font-medium transition-all"
                 placeholder="••••••••"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 required
               />
+            </div>
+            <div className="toggle">
+              {showPassword ? (
+                <EyeOff
+                  className="text-[#0a2540] cursor-pointer"
+                  size={24}
+                  style={{position: "absolute", right: "39%", top: "70%", transform: "translateY(-50%)"}}
+                  onClick={() => setShowPassword(false)}
+                />
+              ) : (
+                <Eye
+                  className="text-[#0a2540] cursor-pointer"
+                  size={24}
+                  style={{position: "absolute", right: "39%", top: "70%", transform: "translateY(-53%)"}}
+                  onClick={() => setShowPassword(true)}
+                />
+              )}
             </div>
 
             <button

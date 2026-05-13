@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function ForgotPasswordForm() {
   const [step, setStep] = useState<"reset" | "confirm">("reset");
@@ -9,6 +10,10 @@ export default function ForgotPasswordForm() {
   });
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  
+  // Refs for PIN inputs
+  const pinInputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -124,7 +129,7 @@ export default function ForgotPasswordForm() {
                 <div className="email relative">
                   <span
                     className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0a2540] text-xl"
-                    style={{ top: "30%" }}
+                    style={{ top: "68%" }}
                   >
                     <i className="fa-regular fa-envelope"></i>
                   </span>
@@ -149,7 +154,7 @@ export default function ForgotPasswordForm() {
                 <div className="new-password mt-4 relative">
                   <span
                     className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0a2540] text-xl"
-                    style={{ top: "30%" }}
+                    style={{ top: "68%" }}
                   >
                     <i className="fa-solid fa-lock"></i>
                   </span>
@@ -164,17 +169,32 @@ export default function ForgotPasswordForm() {
                     name="newPassword"
                     value={formData.newPassword}
                     onChange={handleChange}
-                    className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 text-sm sm:text-base font-medium transition-all"
+                    className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 pr-10 text-sm sm:text-base font-medium transition-all"
                     placeholder="••••••••"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                   />
+                  <div className="toggle absolute" style={{ right: "5%", top: "50%", transform: "translateY(28%)" }}>
+                    {showPassword ? (
+                      <EyeOff
+                        className="text-[#0a2540] cursor-pointer"
+                        size={24}
+                        onClick={() => setShowPassword(false)}
+                      />
+                    ) : (
+                      <Eye
+                        className="text-[#0a2540] cursor-pointer"
+                        size={24}
+                        onClick={() => setShowPassword(true)}
+                      />
+                    )}
+                  </div>
                 </div>
 
                 {/* Confirm Password Field */}
                 <div className="confirm-password mt-4 relative">
                   <span
                     className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0a2540] text-xl"
-                    style={{ top: "30%" }}
+                    style={{ top: "68%" }}
                   >
                     <i className="fa-solid fa-lock"></i>
                   </span>
@@ -189,10 +209,25 @@ export default function ForgotPasswordForm() {
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleChange}
-                    className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 text-sm sm:text-base font-medium transition-all"
+                    className="form-input flex w-full rounded-lg text-[#0a2540] focus:ring-2 focus:ring-[#0a2540]/20 border-glass-border bg-white/50 focus:bg-white h-12 xs:h-12 sm:h-14 placeholder:text-[#0a2540]/30 pl-10 xs:pl-12 pr-10 text-sm sm:text-base font-medium transition-all"
                     placeholder="••••••••"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                   />
+                  <div className="toggle absolute" style={{ right: "5%", top: "50%", transform: "translateY(28%)" }}>
+                    {showPassword ? (
+                      <EyeOff
+                        className="text-[#0a2540] cursor-pointer"
+                        size={24}
+                        onClick={() => setShowPassword(false)}
+                      />
+                    ) : (
+                      <Eye
+                        className="text-[#0a2540] cursor-pointer"
+                        size={24}
+                        onClick={() => setShowPassword(true)}
+                      />
+                    )}
+                  </div>
                 </div>
 
                 {error && (
@@ -221,6 +256,7 @@ export default function ForgotPasswordForm() {
                 {/* 4-Digit Code Input */}
                 <div className="flex gap-3 xs:gap-4 mb-6">
                   <input
+                    ref={(el) => { pinInputRefs.current[0] = el; }}
                     type="text"
                     inputMode="numeric"
                     maxLength={1}
@@ -229,11 +265,16 @@ export default function ForgotPasswordForm() {
                       const newCode = code.split("");
                       newCode[0] = e.target.value.replace(/\D/g, "").slice(-1);
                       setCode(newCode.join(""));
+                      if (newCode[0]) pinInputRefs.current[1]?.focus();
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Backspace" && !code[0]) pinInputRefs.current[0]?.focus();
                     }}
                     className="w-12 h-14 xs:w-14 xs:h-16 text-center text-2xl font-bold rounded-lg border-2 border-[#0a2540]/20 bg-white focus:bg-white focus:border-[#0a2540] transition-all"
                     style={{ borderColor: code[0] ? "#0a2540" : "rgba(10,37,64,0.2)" }}
                   />
                   <input
+                    ref={(el) => { pinInputRefs.current[1] = el; }}
                     type="text"
                     inputMode="numeric"
                     maxLength={1}
@@ -242,11 +283,16 @@ export default function ForgotPasswordForm() {
                       const newCode = code.split("");
                       newCode[1] = e.target.value.replace(/\D/g, "").slice(-1);
                       setCode(newCode.join(""));
+                      if (newCode[1]) pinInputRefs.current[2]?.focus();
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Backspace" && !code[1]) pinInputRefs.current[0]?.focus();
                     }}
                     className="w-12 h-14 xs:w-14 xs:h-16 text-center text-2xl font-bold rounded-lg border-2 border-[#0a2540]/20 bg-white focus:bg-white focus:border-[#0a2540] transition-all"
                     style={{ borderColor: code[1] ? "#0a2540" : "rgba(10,37,64,0.2)" }}
                   />
                   <input
+                    ref={(el) => { pinInputRefs.current[2] = el; }}
                     type="text"
                     inputMode="numeric"
                     maxLength={1}
@@ -255,11 +301,16 @@ export default function ForgotPasswordForm() {
                       const newCode = code.split("");
                       newCode[2] = e.target.value.replace(/\D/g, "").slice(-1);
                       setCode(newCode.join(""));
+                      if (newCode[2]) pinInputRefs.current[3]?.focus();
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Backspace" && !code[2]) pinInputRefs.current[1]?.focus();
                     }}
                     className="w-12 h-14 xs:w-14 xs:h-16 text-center text-2xl font-bold rounded-lg border-2 border-[#0a2540]/20 bg-white focus:bg-white focus:border-[#0a2540] transition-all"
                     style={{ borderColor: code[2] ? "#0a2540" : "rgba(10,37,64,0.2)" }}
                   />
                   <input
+                    ref={(el) => { pinInputRefs.current[3] = el; }}
                     type="text"
                     inputMode="numeric"
                     maxLength={1}
@@ -268,6 +319,9 @@ export default function ForgotPasswordForm() {
                       const newCode = code.split("");
                       newCode[3] = e.target.value.replace(/\D/g, "").slice(-1);
                       setCode(newCode.join(""));
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Backspace" && !code[3]) pinInputRefs.current[2]?.focus();
                     }}
                     className="w-12 h-14 xs:w-14 xs:h-16 text-center text-2xl font-bold rounded-lg border-2 border-[#0a2540]/20 bg-white focus:bg-white focus:border-[#0a2540] transition-all"
                     style={{ borderColor: code[3] ? "#0a2540" : "rgba(10,37,64,0.2)" }}
