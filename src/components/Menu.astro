@@ -3,6 +3,7 @@ interface MenuProps {
   title: string;
   description: string[];
   btnText: string;
+  btnLink: string;
   price?: string;
 }
 
@@ -15,28 +16,31 @@ interface MenuProps {
              'Public Repos Only',
       ],
       btnText: 'Get Started',
+      btnLink: '/register',
       price: '$0',
     },
     {
         title: 'Head Chef',
         description: [
-             '30 Boilerplates/mo',
+             '15 Boilerplates/mo',
              'Standard Support',
              'Public Repos and Private Repos',
-      ],
+       ],
         btnText: 'Go Pro',
+        btnLink: '/pricing?plan=Head%20Chef',
         price: '$20',
     },
     
     {
-        title: 'Executive*',
+        title: 'Executive',
         description: [
-             'Custom quantity Boilerplates/mo',
+             '30 Boilerplates/mo',
              'Priority Support',
              'Enterprise Security',
-      ],
-        btnText: 'Contact Sales',
-        price: '$99',
+       ],
+        btnText: 'Go Executive',
+        btnLink: '/pricing?plan=Executive',
+        price: '$60',
     },
 ];
 ---
@@ -53,7 +57,7 @@ interface MenuProps {
             <div class="card-body">
                 <div class="card-title">{item.title}</div>
                 <div class="card-price">{item.price} <div class="c-mo">/mo</div> </div>
-                <button class="btn-action">{item.btnText}</button>
+                <a href={item.btnLink} class="btn-action">{item.btnText}</a>
                 <ul class="cards-description">
                     {item.description.map((desc) => (
                         <li><i class="fa-regular fa-circle-check"></i>
@@ -174,17 +178,18 @@ interface MenuProps {
     padding: 1rem 2rem;
     border-radius: 12px;
     cursor: pointer;
-    margin-bottom: 0.75rem;
-    margin-left: 15px;
-    width: 90%;
+    text-decoration: none;
+    /* width: calc(50% - 20px); */
+    width: fit-content;
     font-size: 1rem;
     font-weight: 600;
+    display: block;
+    margin: 10px 15px 15px;
   }
 
   .card-featured .btn-action {
     background-color: #c7ddeb;
     color: #0A2540;
-    
   }
 
   /* Responsive for 360px screens */
