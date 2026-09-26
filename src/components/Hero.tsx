@@ -18,10 +18,10 @@ export function HeroScroll() {
         <div className="terminal-shell" data-scale-fade>
           <div className="terminal-shell__edge">
             <img
-              src="/src/assets/image-hero.png"
-              alt="Stack Cheff terminal generating a production-ready application stack"
-              width="1018"
-              height="572"
+              src="/src/assets/hero-terminal.webp"
+              alt="Stack Cheff terminal generating a Next.js stack with Docker, GitHub workflows, and automated tests"
+              width="1672"
+              height="941"
               className="terminal-shell__image"
             />
           </div>
