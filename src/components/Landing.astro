@@ -1,0 +1,15 @@
+---
+import Kitchen from "./Kitchen.astro";
+import Menu from "./Menu.astro";
+import CalltoAction from "./CalltoAction.astro";
+import { HeroScroll } from "./Hero.tsx";
+import { MotionEffects } from "./MotionEffects";
+---
+
+<div class="landing-page">
+  <HeroScroll />
+  <Kitchen />
+  <Menu />
+  <CalltoAction />
+  <MotionEffects client:load />
+</div>

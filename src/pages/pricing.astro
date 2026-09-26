@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PricingComparison from "../components/auth/PricingComparison";
+
+// Get the plan from URL params or default to Head Chef
+const raw = Astro.url.searchParams.get('plan');
+console.log('raw param:', raw)
+const selectedPlan = (raw === 'Head Chef' || raw === 'Executive' ? raw : 'Head Chef') as 'Head Chef' | 'Executive';
+console.log('selectedPlan:', selectedPlan);
+---
+
+<Layout>
+  <PricingComparison client:load selectedPlan={selectedPlan} />
+</Layout>

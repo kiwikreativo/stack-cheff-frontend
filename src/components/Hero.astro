@@ -1,0 +1,99 @@
+<div class="container-fluid">
+    <div class="container">
+        <h1 class="title">Generate Production Ready Boilerplates in 60 Seconds</h1>
+        <p class="text">Stop wasting hours on configuration. Stack Chef uses AI to cook up perfectly seasoned stacks with Docker, GitHub Actions, and industry-standard best practices out of the box. </p>
+        <div class="btn-group">
+            <button class="btn-start" type="submit">Start Building Now</button>
+            <button class="btn-learn-more" type="submit">Learn More</button>
+        </div>
+        <img class="image-hero" src="./../../src/assets/image-hero.png" alt="" srcset="">
+    </div>
+</div>
+
+<!-- //TODO change the color palette to Powder blue and Dark Navy hexa codes are in stitch -->
+<style>
+    
+    
+
+     .container-fluid{/*TODO change the background image to cover the entire hero section the new one is in Downloads */
+        background-image: url("./../../src/assets/blurry-gradient-haikei.svg");
+        background-size: cover;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        display: flex;
+        flex-direction: column;
+        padding-left: clamp(1rem, 5vw, 3rem);
+        padding-right: clamp(1rem, 5vw, 3rem);
+        overflow-x: hidden;
+    }
+
+    .container{
+        width: clamp(100%, 60vw, 100%);
+        max-width: 900px;
+        text-align: center;
+        margin: 10% auto;
+    }
+    .title
+    {
+        color: white;
+        text-align: center;
+        font-size: 4.5rem;
+        font-weight: bold;
+    }
+
+    .text{
+        color: white;
+        text-align: center;
+        margin-top: 2vh;
+        font-size: 1.5rem;
+    }
+    .btn-group{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5vh;
+        gap: clamp(1rem, 3vw, 2vw);
+    }
+
+    .btn-start{
+        background-color: #0a2540;
+        border: none;
+        color: #c7ddeb;
+        padding: 1.5rem 2.5rem;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+    }
+
+    .btn-start:hover{
+        transform: translateY(-5px);
+    }
+
+    .btn-learn-more{
+        background-color: rgba(232, 232, 232, 0.1);
+        border: 1px solid white;
+        color: white;
+        padding: 1.5rem 2.5rem;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .image-hero{
+        position: relative;
+        top: 5vh;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: clamp(100%, 60vw, 100%);
+        max-width: 900px;
+        border-radius: 15px;
+        
+    }
+
+</style>

@@ -1,0 +1,40 @@
+---
+import { Github, Container, BrainCircuit, type Icon as IconType } from "@lucide/astro";
+
+interface KitchenProps { title: string; text: string; icon: typeof IconType; }
+const kitchenItems: KitchenProps[] = [
+  { title: "AI-Powered Configs", text: "Intelligent stack generation tailored to your project needs using advanced AI models. No more generic templates.", icon: BrainCircuit },
+  { title: "Docker Ready", text: "Containerization baked in from the start for seamless deployment across any environment. Dev, Staging, Prod—ready.", icon: Container },
+  { title: "GitHub Integration", text: " Automated CI/CD pipelines and repository setup to get your code moving instantly from the very first commit.", icon: Github },
+];
+---
+
+<section class="section-shell kitchen" id="kitchen" aria-labelledby="kitchen-title">
+  <div class="site-container">
+    <header class="section-heading" data-reveal>
+      <h2 id="kitchen-title">The Ultimate Developer Kitchen</h2>
+      <p data-scrub-text>Everything you need to ship faster without the configuration headache. Our ingredients are sourced from industry standards.</p>
+    </header>
+    <div class="feature-grid">
+      {kitchenItems.map((item) => (
+        <article class="feature-card" data-scale-fade>
+          <div class="feature-icon" aria-hidden="true"><item.icon size={25} stroke-width={1.9} /></div>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .kitchen { overflow: hidden; border-bottom: 1px solid var(--border); background: radial-gradient(circle at 50% 35%, rgba(30,58,138,.16), transparent 40%), var(--background); }
+  .kitchen::before { content: ""; position: absolute; top: 0; left: 50%; width: min(76rem, calc(100% - 2rem)); height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: .55; }
+  .feature-grid { display: flex; grid-auto-flow: dense; gap: 1rem; margin-top: clamp(4rem, 7vw, 6rem); }
+  .feature-card { min-width: 0; min-height: 20rem; flex: 1 1 0; display: flex; flex-direction: column; align-items: flex-start; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(1.6rem, 2.8vw, 2.25rem); background: linear-gradient(145deg, rgba(15,23,42,.96), rgba(8,13,25,.94)); box-shadow: var(--shadow-card); transition: flex 500ms cubic-bezier(.22,1,.36,1), transform 200ms ease, border-color 200ms ease; }
+  .feature-card:hover { flex: 1.32 1 0; transform: translateY(-5px); border-color: var(--border-blue); }
+  .feature-icon { width: 3rem; height: 3rem; display: grid; place-items: center; border: 1px solid var(--border-blue); border-radius: var(--radius-sm); background: rgba(59,130,246,.1); color: var(--primary-bright); box-shadow: 0 0 28px rgba(59,130,246,.1); }
+  .feature-card h3 { margin: 2rem 0 .75rem; color: #fff; font-size: 1.35rem; font-weight: 550; letter-spacing: -.025em; }
+  .feature-card p { max-width: 24rem; margin: 0; color: var(--text-muted); font-size: .96rem; line-height: 1.65; text-wrap: pretty; }
+  @media (max-width: 800px) { .feature-grid { flex-direction: column; } .feature-card, .feature-card:hover { min-height: 0; flex: auto; } }
+</style>

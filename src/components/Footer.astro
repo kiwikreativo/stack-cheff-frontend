@@ -1,0 +1,50 @@
+---
+import { UtensilsCrossed, MessageCircle, LockKeyhole, Instagram, Linkedin } from "@lucide/astro";
+const actualYear = new Date().getFullYear();
+const socialLinks = [
+  { label: "Discord", icon: MessageCircle },
+  { label: "Privay Policy", icon: LockKeyhole },
+  { label: "Instagram", icon: Instagram },
+  { label: "LinkedIn", icon: Linkedin },
+];
+---
+
+<footer class="footer">
+  <div class="site-container">
+    <div class="footer__top">
+      <a class="footer__brand" href="/" aria-label="Stack Cheff home">
+        <span class="footer__mark" aria-hidden="true"><UtensilsCrossed size={20} stroke-width={2.1} /></span>
+        <span>Stack Cheff</span>
+      </a>
+      <ul class="footer__social" aria-label="Social links">
+        {socialLinks.map((item) => (
+          <li>
+            <a href="#" aria-label={item.label}>
+              <item.icon size={19} stroke-width={1.9} aria-hidden="true" />
+              <span class="tooltip">{item.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; {actualYear} Stack Cheff. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer { border-top: 1px solid var(--border); background: #02040a; color: #fff; }
+  .footer__top { min-height: 8rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+  .footer__brand { display: inline-flex; align-items: center; gap: .7rem; color: #fff; font-size: 1rem; font-weight: 680; letter-spacing: -.02em; text-decoration: none; }
+  .footer__mark { width: 2.35rem; height: 2.35rem; display: grid; place-items: center; border: 1px solid var(--border-blue); border-radius: .7rem; background: rgba(59,130,246,.1); color: var(--primary-bright); }
+  .footer__social { display: flex; gap: .55rem; margin: 0; padding: 0; list-style: none; }
+  .footer__social li { position: relative; }
+  .footer__social a { width: 2.55rem; height: 2.55rem; display: grid; place-items: center; border: 1px solid rgba(160,207,227,.16); border-radius: .7rem; color: #b8d5e2; transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, transform 180ms ease; }
+  .footer__social a:hover { transform: translateY(-2px); border-color: rgba(111,200,237,.5); background: rgba(111,200,237,.1); color: #fff; }
+  .tooltip { position: absolute; bottom: calc(100% + .55rem); left: 50%; transform: translate(-50%, .25rem); border-radius: .35rem; padding: .3rem .45rem; background: #fff; color: #02040a; font-size: .7rem; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 180ms ease, transform 180ms ease; }
+  .footer__social a:hover .tooltip, .footer__social a:focus-visible .tooltip { opacity: 1; transform: translate(-50%, 0); }
+  .footer__bottom { border-top: 1px solid rgba(160,207,227,.12); padding-block: 1.4rem; }
+  .footer__bottom p { margin: 0; color: #7fa0b0; font-size: .82rem; text-align: center; }
+  @media (max-width: 600px) { .footer__top { flex-direction: column; min-height: 0; padding-block: 3rem 2rem; } .footer__bottom { padding-block: 1.25rem; } }
+</style>
