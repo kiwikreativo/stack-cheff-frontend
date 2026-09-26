@@ -1,21 +1,15 @@
 ---
-import Hero from "./Hero.astro"
-import Kitchen from "./Kitchen.astro"
-import Menu from "./Menu.astro"
-import CalltoAction from "./CalltoAction.astro"
-import { HeroScroll } from "./Hero.tsx"
+import Kitchen from "./Kitchen.astro";
+import Menu from "./Menu.astro";
+import CalltoAction from "./CalltoAction.astro";
+import { HeroScroll } from "./Hero.tsx";
+import { MotionEffects } from "./MotionEffects";
 ---
 
-<div class="container-fluid">
-    <HeroScroll client:load />
-    <Kitchen />
-    <Menu />
-    <CalltoAction />
+<div class="landing-page">
+  <HeroScroll />
+  <Kitchen />
+  <Menu />
+  <CalltoAction />
+  <MotionEffects client:load />
 </div>
- 
-<style>
-    .container-fluid {
-        padding: 0;
-        margin: 0;
-    }
-</style>

@@ -1,74 +1,17 @@
-<div class="container-cta">
-  <h1 class="cta-title">Ready to start cooking?</h1>
-  <p class="cta-text d-flex flex-column">
-    Join thousands of developers building faster with Stack Chef. Your next big thing starts with a perfect stack.
-  </p>
-  <button class="btn-building">Start Building Now</button>
-</div>
+<section class="cta" aria-labelledby="cta-title">
+  <div class="site-container cta__inner" data-reveal>
+    <h2 id="cta-title">Ready to start cooking?</h2>
+    <p data-scrub-text>Join thousands of developers building faster with Stack Chef. Your next big thing starts with a perfect stack.</p>
+    <a href="/register" class="button cta__button">Start Building Now</a>
+  </div>
+</section>
 
 <style>
-    .container-cta {
-        background-color: #c7ddeb;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding-left: clamp(1rem, 5vw, 3rem);
-        padding-right: clamp(1rem, 5vw, 3rem);
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        margin-bottom: 3vh;
-    
-  }
-  .cta-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #0A2540;
-  }
-  .cta-text {
-    font-size: 1rem;
-    color: #0A2540;
-    max-width: 700px;
-    margin-top: 0.75rem;
-  }
-  .btn-building{
-    border: none;
-    background-color: #0A2540;
-    color: #c7ddeb;
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-top: 1.5rem;
-    box-shadow: 2px 5px 32px -11px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 2px 5px 32px -11px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 5px 32px -11px rgba(0,0,0,0.75);
-  }
-
-  /* Responsive for 360px screens */
-  @media (max-width: 480px) {
-    .container-cta {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
-
-    .cta-title {
-      font-size: 1.5rem;
-    }
-
-    .cta-text {
-      font-size: 0.9rem;
-    }
-
-    .btn-building {
-      padding: 0.8rem 1.5rem;
-      font-size: 0.9rem;
-      border-radius: 10px;
-      margin-top: 1rem;
-    }
-  }
-   
+  .cta { position: relative; isolation: isolate; overflow: hidden; padding-block: clamp(7rem, 12vw, 11rem); background: radial-gradient(circle at 50% 25%, rgba(59,130,246,.26), transparent 38%), #02040a; color: #fff; }
+  .cta::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .14; background-image: linear-gradient(rgba(255,255,255,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.09) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(circle at center, black, transparent 72%); }
+  .cta__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .cta h2 { max-width: 48rem; margin: 0; font-size: clamp(2.4rem, 5.4vw, 4.75rem); font-weight: 730; letter-spacing: -.06em; line-height: 1; text-wrap: balance; }
+  .cta p { max-width: 42rem; margin: 1.25rem auto 0; color: var(--text-muted); font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.7; text-wrap: pretty; }
+  .cta__button { margin-top: 2rem; background: var(--primary); color: #fff; box-shadow: 0 16px 38px rgba(59,130,246,.3); }
+  .cta__button:hover { background: #2563eb; box-shadow: 0 20px 46px rgba(59,130,246,.4); }
 </style>

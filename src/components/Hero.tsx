@@ -1,34 +1,43 @@
 "use client";
+
 import React from "react";
-import { ContainerScroll } from "./ui/container-scroll-animation";
 
 export function HeroScroll() {
   return (
-    <div className="flex flex-col overflow-hidden pb-[80px] sm:pb-[250px] pt-[100px] sm:pt-[150px]"
-    style={{backgroundImage: "url('/src/assets/blurry-gradient-haikei.svg')", backgroundSize: 'cover', backgroundPosition: 'center'}}
-    >
-      {/* /home/guillermoo/Documents/proyects/stack-cheff-frontend/src/assets/blurry-gradient-haikei.svg */}
-      <ContainerScroll
-        titleComponent={
-          <>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white dark:text-white px-2">
-              Generate Production-Ready  <br />
-              <span className="text-3xl sm:text-4xl md:text-[4rem] lg:text-[6rem] font-bold mt-1 leading-none">
-                Boilerplates in 60 Seconds
-              </span>
-            </h1>
-          </>
-        }
-      >
-        <img
-          src={`/src/assets/image-hero.png`}
-          alt="hero"
-          height={750}
-          width={1400}
-          className="mx-auto rounded-2xl object-cover h-full object-left-top"
-          style={{ maxWidth: '100%', height: 'auto' }}
-        />
-      </ContainerScroll>
-    </div>
+    <section className="hero" aria-labelledby="hero-title">
+      <div className="hero__atmosphere" aria-hidden="true"><i /><i /><i /></div>
+      <div className="site-container hero__inner">
+        <div className="hero__copy" data-reveal>
+          <p className="hero__eyebrow">Generate Production-Ready</p>
+          <h1 id="hero-title" className="hero__title">
+            Boilerplates
+            <span>in 60 Seconds</span>
+          </h1>
+        </div>
+
+        <div className="terminal-shell" data-scale-fade>
+          <div className="terminal-shell__edge">
+            <img
+              src="/src/assets/image-hero.png"
+              alt="Stack Cheff terminal generating a production-ready application stack"
+              width="1018"
+              height="572"
+              className="terminal-shell__image"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="integration-marquee" aria-label="Stack Cheff integrations">
+        <div className="integration-marquee__track">
+          {[0, 1].map((group) => (
+            <div className="integration-marquee__group" aria-hidden={group === 1} key={group}>
+              <span>AI-Powered Configs</span><i />
+              <span>Docker Ready</span><i />
+              <span>GitHub Integration</span><i />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

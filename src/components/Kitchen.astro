@@ -1,211 +1,40 @@
 ---
-import { Github, Container, BrainCircuit, type Icon as IconType } from '@lucide/astro';
+import { Github, Container, BrainCircuit, type Icon as IconType } from "@lucide/astro";
 
-interface KitchenProps {
-  title: string;
-    text: string;
-    icon: typeof IconType;
-}
-
-let kitchenItems: KitchenProps[] = [
-    {
-      title: 'AI-Powered Configs',
-      text: 'Intelligent stack generation tailored to your project needs using advanced AI models. No more generic templates.',
-      icon: BrainCircuit,
-    },
-    {
-        title: 'Docker Ready',
-        text: 'Containerization baked in from the start for seamless deployment across any environment. Dev, Staging, Prod—ready.',
-        icon: Container,
-    },
-    {
-        title: 'GitHub Integration',
-        text: ' Automated CI/CD pipelines and repository setup to get your code moving instantly from the very first commit.',
-        icon: Github,
-    },
+interface KitchenProps { title: string; text: string; icon: typeof IconType; }
+const kitchenItems: KitchenProps[] = [
+  { title: "AI-Powered Configs", text: "Intelligent stack generation tailored to your project needs using advanced AI models. No more generic templates.", icon: BrainCircuit },
+  { title: "Docker Ready", text: "Containerization baked in from the start for seamless deployment across any environment. Dev, Staging, Prod—ready.", icon: Container },
+  { title: "GitHub Integration", text: " Automated CI/CD pipelines and repository setup to get your code moving instantly from the very first commit.", icon: Github },
 ];
-
 ---
 
-<div class="container-kitchen" id="kitchen">
-  <h1 class="kitchen-title">The Ultimate Developer Kitchen</h1>
-  <p class="kitchen-text d-flex flex-column">
-    Everything you need to ship faster without the configuration headache. Our
-    ingredients are sourced from industry standards.
-  </p>
-
- <div class="cards">
-     { kitchenItems.map((item) =>
-  <div class="card">
-    <div class="card-body">
-        <div class="icon-container">
-            <div class="card-icon">
-                <item.icon size={36} color='#c7ddeb' stroke-width={2}/>
-            </div>
-        </div>
-        <h5 class="card-title">{item.title}</h5>
-          <p class="card-text">
-              {item.text}
-          </p>
+<section class="section-shell kitchen" id="kitchen" aria-labelledby="kitchen-title">
+  <div class="site-container">
+    <header class="section-heading" data-reveal>
+      <h2 id="kitchen-title">The Ultimate Developer Kitchen</h2>
+      <p data-scrub-text>Everything you need to ship faster without the configuration headache. Our ingredients are sourced from industry standards.</p>
+    </header>
+    <div class="feature-grid">
+      {kitchenItems.map((item) => (
+        <article class="feature-card" data-scale-fade>
+          <div class="feature-icon" aria-hidden="true"><item.icon size={25} stroke-width={1.9} /></div>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
     </div>
-  </div>)}
- </div>
-</div>
+  </div>
+</section>
 
 <style>
-  
-  .container-kitchen {
-    background-color: #c7ddeb;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-left: clamp(1rem, 5vw, 3rem);
-    padding-right: clamp(1rem, 5vw, 3rem);
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-bottom: 0;
-    
-  }
-  .kitchen-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #0A2540;
-  }
-  .kitchen-text {
-    font-size: 1rem;
-    color: #0A2540;
-    max-width: 600px;
-    margin-top: 1rem;
-  }
-
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .card{
-    background: rgba(255, 255, 255, 0.3);
-    border: none;
-    width: 100%;
-    max-width: 22rem; 
-    min-height: 18rem;
-    border-radius: 15px;
-  }
-
-  .card:hover{ 
-    cursor: pointer;
-    box-shadow: -1px 24px 52px -21px rgba(138,138,138,0.75);
-    -moz-box-shadow: -1px 24px 52px -21px rgba(138,138,138,0.75);
-    -webkit-box-shadow: -1px 24px 52px -21px rgba(138,138,138,0.75);
-  }
-
-  .card:hover .icon-container{
-    transform: translateY(-5px);
-  }
-
-
-  .icon-container{/*TODO fix the transform upscale for the icon referecing the card*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #c7ddeb;
-    background-color: #0A2540;
-    transition: transform 0.3s ease;
-    border-radius: 15px;
-    width: 55px;
-    height: 55px;
-    margin-bottom: 1rem;
-  }
-
-  .icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  .card-icon:hover{
-    transform: translateY(-5px);
-  }
-  .card-body{
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-  }
-
-  .card-title{
-    display: flex;
-    text-align: start;
-    font-weight: bold;
-    font-size: 1.1rem;
-  }
-
-  .card-text{
-    display: flex;
-    text-align: start;
-    font-weight: 500;
-    font-size: 0.95rem;
-    margin-bottom: 5%;
-    color:#0A2540;
-    line-height: 1.5;
-  }
-
-  /* Responsive for 360px screens */
-  @media (max-width: 480px) {
-    .container-kitchen {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
-
-    .kitchen-title {
-      font-size: 1.5rem;
-    }
-
-    .kitchen-text {
-      font-size: 0.9rem;
-    }
-
-    .cards {
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .card {
-      max-width: 18rem;
-      min-height: 16rem;
-    }
-
-    .icon-container {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 0.75rem;
-    }
-
-    .icon {
-      width: 32px;
-      height: 32px;
-    }
-
-    .card-title {
-      font-size: 1rem;
-    }
-
-    .card-text {
-      font-size: 0.85rem;
-      line-height: 1.4;
-    }
-  }
-
-  @media (min-width: 481px) and (max-width: 768px) {
-    .card {
-      max-width: 20rem;
-      min-height: 17rem;
-    }
-  }
+  .kitchen { overflow: hidden; border-bottom: 1px solid var(--border); background: radial-gradient(circle at 50% 35%, rgba(30,58,138,.16), transparent 40%), var(--background); }
+  .kitchen::before { content: ""; position: absolute; top: 0; left: 50%; width: min(76rem, calc(100% - 2rem)); height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: .55; }
+  .feature-grid { display: flex; grid-auto-flow: dense; gap: 1rem; margin-top: clamp(4rem, 7vw, 6rem); }
+  .feature-card { min-width: 0; min-height: 20rem; flex: 1 1 0; display: flex; flex-direction: column; align-items: flex-start; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(1.6rem, 2.8vw, 2.25rem); background: linear-gradient(145deg, rgba(15,23,42,.96), rgba(8,13,25,.94)); box-shadow: var(--shadow-card); transition: flex 500ms cubic-bezier(.22,1,.36,1), transform 200ms ease, border-color 200ms ease; }
+  .feature-card:hover { flex: 1.32 1 0; transform: translateY(-5px); border-color: var(--border-blue); }
+  .feature-icon { width: 3rem; height: 3rem; display: grid; place-items: center; border: 1px solid var(--border-blue); border-radius: var(--radius-sm); background: rgba(59,130,246,.1); color: var(--primary-bright); box-shadow: 0 0 28px rgba(59,130,246,.1); }
+  .feature-card h3 { margin: 2rem 0 .75rem; color: #fff; font-size: 1.35rem; font-weight: 550; letter-spacing: -.025em; }
+  .feature-card p { max-width: 24rem; margin: 0; color: var(--text-muted); font-size: .96rem; line-height: 1.65; text-wrap: pretty; }
+  @media (max-width: 800px) { .feature-grid { flex-direction: column; } .feature-card, .feature-card:hover { min-height: 0; flex: auto; } }
 </style>

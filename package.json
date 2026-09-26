@@ -11,7 +11,9 @@
   "dependencies": {
     "@astrojs/netlify": "^8.2.6",
     "@astrojs/react": "^7.0.0",
+    "@fontsource-variable/geist": "^5.3.0",
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@gsap/react": "^2.1.2",
     "@lucide/astro": "^0.563.0",
     "@phosphor-icons/react": "^2.1.10",
     "@tailwindcss/vite": "^4.1.18",
@@ -21,6 +23,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
+    "gsap": "^3.15.0",
     "lucide-react": "^1.14.0",
     "radix-ui": "^1.4.3",
     "react": "^19.2.4",

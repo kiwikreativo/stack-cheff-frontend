@@ -1,258 +1,60 @@
 ---
-interface MenuProps {
-  title: string;
-  description: string[];
-  btnText: string;
-  btnLink: string;
-  price?: string;
-}
+import { CircleCheck } from "@lucide/astro";
 
-    let menuItems: MenuProps[] = [
-    {
-      title: 'Sous Chef',
-      description: [
-             '5 Boilerplates/mo',
-             'Standard Support',
-             'Public Repos Only',
-      ],
-      btnText: 'Get Started',
-      btnLink: '/register',
-      price: '$0',
-    },
-    {
-        title: 'Head Chef',
-        description: [
-             '15 Boilerplates/mo',
-             'Standard Support',
-             'Public Repos and Private Repos',
-       ],
-        btnText: 'Go Pro',
-        btnLink: '/pricing?plan=Head%20Chef',
-        price: '$20',
-    },
-    
-    {
-        title: 'Executive',
-        description: [
-             '30 Boilerplates/mo',
-             'Priority Support',
-             'Enterprise Security',
-       ],
-        btnText: 'Go Executive',
-        btnLink: '/pricing?plan=Executive',
-        price: '$60',
-    },
+interface MenuProps { title: string; description: string[]; btnText: string; btnLink: string; price?: string; }
+const menuItems: MenuProps[] = [
+  { title: "Sous Chef", description: ["5 Boilerplates/mo", "Standard Support", "Public Repos Only"], btnText: "Get Started", btnLink: "/register", price: "$0" },
+  { title: "Head Chef", description: ["15 Boilerplates/mo", "Standard Support", "Public Repos and Private Repos"], btnText: "Go Pro", btnLink: "/pricing?plan=Head%20Chef", price: "$20" },
+  { title: "Executive", description: ["30 Boilerplates/mo", "Priority Support", "Enterprise Security"], btnText: "Go Executive", btnLink: "/pricing?plan=Executive", price: "$60" },
 ];
 ---
 
-<div class="container-menu" id="menu">
-    <h1 class="menu-title">Choose Your Menu</h1>
-  <p class="menu-text d-flex flex-column">
-    Scale production as you grow. No hidden ingredients.
-  </p>
-
-  <div class="cards d-flex flex-row flex-wrap justify-content-center gap-4 mt-5">
-    {menuItems.map((item: MenuProps) => (
-        <div class={`card ${item.title === 'Head Chef' ? 'card-featured' : 'card-standard'}`}>
-            <div class="card-body">
-                <div class="card-title">{item.title}</div>
-                <div class="card-price">{item.price} <div class="c-mo">/mo</div> </div>
-                <a href={item.btnLink} class="btn-action">{item.btnText}</a>
-                <ul class="cards-description">
-                    {item.description.map((desc) => (
-                        <li><i class="fa-regular fa-circle-check"></i>
-                            {desc}</li>
-                    ))}
-                </ul>
-            </div>
-        </div>
-    ),)}
-     
+<section class="section-shell menu" id="menu" aria-labelledby="menu-title">
+  <div class="site-container">
+    <header class="section-heading" data-reveal>
+      <h2 id="menu-title">Choose Your Menu</h2>
+      <p data-scrub-text>Scale production as you grow. No hidden ingredients.</p>
+    </header>
+    <div class="pricing-grid">
+      {menuItems.map((item) => (
+        <article class:list={["pricing-card", { "pricing-card--featured": item.title === "Head Chef" }]} data-reveal>
+          <h3>{item.title}</h3>
+          <div class="pricing-card__price"><span>{item.price}</span><small>/mo</small></div>
+          <a href={item.btnLink} class="button pricing-card__button">{item.btnText}</a>
+          <ul>
+            {item.description.map((desc) => (
+              <li><CircleCheck size={19} stroke-width={1.9} aria-hidden="true" /><span>{desc}</span></li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
   </div>
-</div>
+</section>
 
-
-  <style>
-
-      .container-menu {
-        background-color: rgba(199, 221, 235, 0.3);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding-left: clamp(1rem, 5vw, 3rem);
-        padding-right: clamp(1rem, 5vw, 3rem);
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);    
-  }
-  .menu-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #0A2540;
-  }
-  .menu-text {
-    font-size: 1rem;
-    color: #0A2540;
-    max-width: 700px;
-    margin-top: 0.5rem;
-  }
-
-  .cards{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.1rem;
-    margin-top: 5%;
-    width: 100vw;
-  }
-
-  .card{
-    width: 25%;
-    min-width: 280px; 
-    min-height: 26rem;
-    border-radius: 20px;
-  }
-
-  .card-featured {
-    background-color: #0A2540;
-    color: #c7ddeb;
-    border: 2px solid #0A2540;
-  }
-
-  .card-featured:hover{
-    border: 1px solid #c7ddeb;
-  }
-
-  .card-standard {
-    background-color: rgba(199, 221, 235, 0.3);
-    color: #0A2540;
-    border: 1px solid #e0e0e0;
-  }
-
-  .card-standard:hover{
-    border: 1px solid #0A2540;
-  }
-  
-  .card-body{
-    text-align: left;
-  }
-
-  .card-title{
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    margin-left: 15px;
-  }
-
-  .card-price{
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    margin-left: 15px;
-  }
-
-  .c-mo{
-    font-size: 1rem;
-    font-weight: 400;
-    display: inline;
-    margin-left: -15px;
-  }
-
-  .cards-description{
-    list-style-type: none;
-    padding-left: 1rem;
-    font-size: 0.95rem;
-    font-weight: 520;
-    line-height: 2.8rem;
-  }
-
-
-  .btn-action{
-    background-color: #0A2540;
-    color: #ffffff;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    cursor: pointer;
-    text-decoration: none;
-    /* width: calc(50% - 20px); */
-    width: fit-content;
-    font-size: 1rem;
-    font-weight: 600;
-    display: block;
-    margin: 10px 15px 15px;
-  }
-
-  .card-featured .btn-action {
-    background-color: #c7ddeb;
-    color: #0A2540;
-  }
-
-  /* Responsive for 360px screens */
-  @media (max-width: 480px) {
-    .container-menu {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
-
-    .menu-title {
-      font-size: 1.5rem;
-    }
-
-    .menu-text {
-      font-size: 0.9rem;
-    }
-
-    .cards {
-      gap: 1rem;
-      margin-top: 3%;
-    }
-
-    .card {
-      max-width: 18rem;
-      min-height: 24rem;
-    }
-
-    .card-title {
-      font-size: 1.1rem;
-      margin-top: 0.75rem;
-    }
-
-    .card-price {
-      font-size: 1.75rem;
-    }
-
-    .c-mo {
-      font-size: 0.9rem;
-      margin-left: -12px;
-    }
-
-    .cards-description {
-      font-size: 0.85rem;
-      line-height: 2.5rem;
-      padding-left: 0.75rem;
-    }
-
-    .btn-action {
-      padding: 0.8rem 1.5rem;
-      font-size: 0.9rem;
-      border-radius: 10px;
-    }
-  }
-
-  @media (min-width: 481px) and (max-width: 768px) {
-    .cards {
-      gap: 1.25rem;
-    }
-
-    .card {
-      max-width: 20rem;
-      min-height: 25rem;
-    }
-  }
-
+<style>
+  .menu { overflow: hidden; border-bottom: 1px solid var(--border); background: #050811; }
+  .menu::after { content: ""; position: absolute; top: 18%; left: 50%; z-index: 0; width: 52rem; height: 52rem; transform: translateX(-50%); border-radius: 50%; background: rgba(30,58,138,.2); filter: blur(100px); pointer-events: none; }
+  .menu .site-container { position: relative; z-index: 1; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); grid-auto-flow: dense; align-items: stretch; gap: 1.25rem; margin-top: clamp(3rem, 5vw, 4.5rem); }
+  .pricing-card { min-height: 31rem; display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(1.7rem, 2.5vw, 2.25rem); background: rgba(15,23,42,.78); color: #fff; box-shadow: var(--shadow-card); transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease; }
+  .pricing-card:hover { transform: translateY(-5px); border-color: var(--border-blue); box-shadow: 0 30px 80px rgba(0,0,0,.42); }
+  .pricing-card--featured { transform: translateY(-.75rem); border-color: rgba(59,130,246,.6); background: linear-gradient(150deg, rgba(30,58,138,.82), #0f172a 65%); color: #fff; box-shadow: 0 28px 80px rgba(30,58,138,.24); }
+  .pricing-card--featured:hover { transform: translateY(calc(-.75rem - 5px)); border-color: var(--primary-bright); box-shadow: 0 34px 90px rgba(30,58,138,.32); }
+  .pricing-card h3 { margin: 0; font-size: 1.1rem; font-weight: 670; letter-spacing: -.02em; }
+  .pricing-card__price { display: flex; align-items: baseline; gap: .4rem; margin: 1.65rem 0 1.75rem; }
+  .pricing-card__price span { font-size: clamp(3rem, 5vw, 4rem); font-weight: 730; letter-spacing: -.065em; line-height: .9; }
+  .pricing-card__price small { color: var(--text-muted); font-size: .95rem; font-weight: 520; }
+  .pricing-card--featured .pricing-card__price small { color: #bfdbfe; }
+  .pricing-card__button { width: 100%; background: #fff; color: #02040a; }
+  .pricing-card__button:hover { background: #dbeafe; }
+  .pricing-card--featured .pricing-card__button { background: var(--primary); color: #fff; }
+  .pricing-card--featured .pricing-card__button:hover { background: #2563eb; }
+  .pricing-card ul { display: grid; gap: 1.05rem; margin: 2rem 0 0; padding: 2rem 0 0; border-top: 1px solid var(--border-soft); list-style: none; }
+  .pricing-card--featured ul { border-color: rgba(96,165,250,.2); }
+  .pricing-card li { display: flex; align-items: flex-start; gap: .7rem; color: var(--text-muted); font-size: .95rem; line-height: 1.45; }
+  .pricing-card li svg { flex: 0 0 auto; margin-top: .05rem; color: var(--primary-bright); }
+  .pricing-card--featured li { color: #dbeafe; }
+  .pricing-card--featured li svg { color: #93c5fd; }
+  @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; max-width: 36rem; margin-inline: auto; } .pricing-card, .pricing-card--featured { min-height: 0; transform: none; } .pricing-card--featured:hover { transform: translateY(-4px); } }
 </style>
