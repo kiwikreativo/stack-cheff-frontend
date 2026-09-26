@@ -4,11 +4,11 @@ import netlify from '@astrojs/netlify';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-
-
   integrations: [react()],
 
-  adapter: netlify(),
+  adapter: netlify({
+    devFeatures: false,
+  }),
 
   vite: {
     plugins: [tailwindcss()],
