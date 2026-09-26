@@ -10,7 +10,13 @@ export default defineConfig({
   output: 'server',
   integrations: [react()],
 
-  adapter: netlify(),
+  adapter: netlify({
+    devFeatures: {
+      images: false,
+      environmentVariables: false,
+      edgeFunctions: false,
+    },
+  }),
 
   vite: {
     plugins: [tailwindcss()],
