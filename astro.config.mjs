@@ -4,7 +4,7 @@ import netlify from '@astrojs/netlify';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  output: 'server',
+
 
   integrations: [react()],
 
